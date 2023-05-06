@@ -6,7 +6,7 @@
     font-family: 'Open Sans';
 }
 header{
-    background: url(/images/fondo.jpg);
+    background: url(../images/fondo.jpg);
     background-size: cover;
     background-position:center;
     height: 300px;
@@ -195,7 +195,7 @@ header h1{
     scale: 1.05;
 }
 
-/* SECCION RESPONSIVE */
+/* Query Celular */
 @media screen and (max-width: 850px) {
     .contenedor {
       display: block;

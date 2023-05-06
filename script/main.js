@@ -83,7 +83,7 @@ function actualizarTotalCarrito() {
     total = Math.round(total * 100) / 100;
 
     document.getElementsByClassName('carrito-precio-total')[0].innerText = '$' + total.toLocaleString("es") + ",00";
-    //local Storage
+   
 }
 //Funciòn que controla si hay elementos en el carrito. Si no hay oculto el carrito.
 function ocultarCarrito() {
