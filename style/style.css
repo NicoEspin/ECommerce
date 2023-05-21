@@ -48,6 +48,8 @@ header h1{
 }
 .contenedor .contenedor-items .item .img-item{
     width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
 }
 .contenedor .contenedor-items .item:hover{
     box-shadow: 0 0 10px #666;

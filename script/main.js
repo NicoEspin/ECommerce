@@ -13,7 +13,7 @@ function ready() {
 
     // Mostrar los elementos del carrito en la página
     const carritoItems = document.getElementsByClassName("carrito-items")[0];
-  
+
     //eliminar item
     let botonesEliminarItem = document.getElementsByClassName("btn-eliminar")
     for (let i = 0; i < botonesEliminarItem.length; i++) {
@@ -83,7 +83,7 @@ function actualizarTotalCarrito() {
     total = Math.round(total * 100) / 100;
 
     document.getElementsByClassName('carrito-precio-total')[0].innerText = '$' + total.toLocaleString("es") + ",00";
-   
+
 }
 //Funciòn que controla si hay elementos en el carrito. Si no hay oculto el carrito.
 function ocultarCarrito() {
@@ -153,7 +153,12 @@ function agregarItemAlcarrito(titulo, precio, imagenSrc) {
     let nombresItemsCarrito = itemsCarrito.getElementsByClassName('carrito-item-titulo');
     for (let i = 0; i < nombresItemsCarrito.length; i++) {
         if (nombresItemsCarrito[i].innerText == titulo) {
-            alert("el item ya se encuentra en el carrito")
+            // sweetAlert
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El item ya se encuentra en el carrito'
+            })
             return;
         }
     }
@@ -188,7 +193,14 @@ function agregarItemAlcarrito(titulo, precio, imagenSrc) {
 
 }
 function pagarClicked(event) {
-    alert("¡Gracias por su compra!")
+    // sweetAlert
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '¡Gracias por su compra!',
+        showConfirmButton: false,
+        timer: 1500
+      })
     //elimino los items del carrito
     let carritoItems = document.getElementsByClassName('carrito-items')[0]
 
@@ -217,10 +229,10 @@ function obtenerItemsCarrito() {
     const items = carritoItems.getElementsByClassName("carrito-item");
     const carrito = [];
     for (const item of items) {
-      const titulo = item.getElementsByClassName("carrito-item-titulo")[0].innerText;
-      const precio = item.getElementsByClassName("carrito-item-precio")[0].innerText;
-      const cantidad = item.getElementsByClassName("carrito-item-cantidad")[0].value;
-      carrito.push({ titulo, precio, cantidad });
+        const titulo = item.getElementsByClassName("carrito-item-titulo")[0].innerText;
+        const precio = item.getElementsByClassName("carrito-item-precio")[0].innerText;
+        const cantidad = item.getElementsByClassName("carrito-item-cantidad")[0].value;
+        carrito.push({ titulo, precio, cantidad });
     }
     return carrito;
-  }
+}
